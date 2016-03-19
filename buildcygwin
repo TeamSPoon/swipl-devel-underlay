@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+#
+# This is the script we use to   build  SWI-Prolog and all its packages.
+# Copy the script to  `build',  edit   to  suit  the  local installation
+# requirements and run it. Once correct, upgrading   to a new release is
+# now limited to getting the new sources and run ./build.
+
+make clean 
+make distclean
+find . -type f -name "*.o" -delete
+find . -type f -name "*.dll" -delete
+find . -type f -name "*.exe" -delete
+find . -type f -name "*.a" -delete
+
+source nobuild
+
+
+################################################################
+# No edit should be needed below this line
+################################################################
+
+V=`cat VERSION`
+config=true
+make=true
+install=true
+done=false
+setvars=false
+
+while test "$done" = false; do
+case "$1" in
+   --config)	make=false
+		install=false
+		shift
+		;;
+   --make)	config=false
+		install=false
+		shift
+		;;
+   --install)	config=false
+		make=false
+		shift
+		;;
+   --prefix=*)  PREFIX=`echo "$1" | sed 's/--prefix=//'`
+		shift
+		;;
+   --setvars)	setvars=true
+		shift
+		;;
+   *)		done=true
+		;;
+esac
+done
+
+if [ "$setvars" = "false" ]; then
+  rm -f packages/.failed.*
+
+  if [ "$config" = "true" ]; then
+    ./configure --prefix=$PREFIX --with-world $EXTRACFG $@ 2>&1 | tee configure.out
+    if [ "${PIPESTATUS[0]}" != 0 ]; then exit 1; fi
+  fi
+
+  if [ "$make" = "true" ]; then
+    $MAKE $@ 2>&1 | tee make.out
+    if [ "${PIPESTATUS[0]}" != 0 ]; then exit 1; fi
+  fi
+
+  if [ "$install" = "true" ]; then
+    $SUDO $MAKE install $@ 2>&1 | tee make-install.out
+    if [ "${PIPESTATUS[0]}" != 0 ]; then exit 1; fi
+  fi
+
+  if [ -z "$DESTDIR" ]; then
+    make check-installation
+  fi
+
+  # Parse build log for warnings that may indicate serious runtime issues
+  if [ "$make" = "true" ]; then
+    [ -f make.out ] && scripts/check_build_log.sh make.out
+  fi
+
+  # See whether any package failed to build
+  ./packages/report-failed || exit 1
+fi # setvars
+
+

@@ -1,0 +1,920 @@
+[Global]
+CurrentProject=swipl.vpj
+[ProjectDates]
+swipl.vpj=20160318163349783
+T:\devel\LogicmooDeveloperFramework\PrologMUD\pack\prologmud\PrologMUD.vpj=20151201183534038
+T:\devel\LogicmooDeveloperFramework\PrologMUD\runtime\PrologMUD_Runtime.vpj=20160221090614713
+..\logicmoo_base.vpj=20160318113140399
+[ActiveConfig]
+swipl.vpj=,Debug
+T:\devel\LogicmooDeveloperFramework\PrologMUD\runtime\PrologMUD_Runtime.vpj=Debug
+T:\devel\LogicmooDeveloperFramework\PrologMUD\pack\prologmud\PrologMUD.vpj=Release
+..\logicmoo_base.vpj=Release
+[TreeExpansion2]
+- ..\logicmoo_base.vpj
+  - t:\
+    - root
+      - lib
+        + swipl
+          - pack
+            - logicmoo_base
+              - prolog
+                - logicmoo
+                  - mpred
+                  + mpred_online
+                    + pixmaps
+                  + pfc
+                  + plarkc
+                  + pttp
+                  + snark
+                  + swish_lib
+                    + render
+                  + util
+                  + xray
+              + t
+                + docs
+                + examples
+                  + api
+                  + csp
+                  + fol
+                  + pfc
+                  + sanity
+                  + snark
+                  + tptp
+- swipl.vpj
+  + .git
+    + hooks
+    + info
+    + logs
+      + refs
+        + heads
+        + remotes
+          + origin
+    + modules
+      + bench
+        + hooks
+        + info
+        + logs
+          + refs
+            + heads
+            + remotes
+              + origin
+        + refs
+          + heads
+          + remotes
+            + origin
+      + packages
+        + archive
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + bdb
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + chr
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + clib
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + clpqr
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + cpp
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + cql
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + http
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + inclpr
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + jpl
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + nlp
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + odbc
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + PDT
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + pengines
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + pldoc
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + plunit
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + protobufs
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + RDF
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + semweb
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + sgml
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + ssl
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + swipl-win
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + table
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + tipc
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + utf8proc
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + windows
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + xpce
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+        + zlib
+          + hooks
+          + info
+          + logs
+            + refs
+              + heads
+              + remotes
+                + origin
+          + refs
+            + heads
+            + remotes
+              + origin
+    + refs
+      + heads
+      + remotes
+        + origin
+  + .settings
+  + bench
+  - boot
+  + customize
+  + demo
+  + gen-files
+  - library
+    + chr
+    + clp
+    + dcg
+    + dialect
+      + ciao
+        + engine
+        + regtypes
+      + eclipse
+      + hprolog
+      + iso
+      + sicstus
+      + swi
+      + yap
+    + unicode
+  + man
+    + figs
+    + lib
+    + macosx
+    + Manual
+    + txt
+      + dvi2tty
+  + packages
+    + archive
+    + bdb
+      + autom4te.cache
+    + chr
+      + autom4te.cache
+      + Benchmarks
+      + Examples
+      + Tests
+    + clib
+      + autom4te.cache
+      + demo
+      + maildrop
+        + rfc2045
+        + rfc822
+      + sha1
+    + clpqr
+      + clpq
+      + clpqr
+      + clpr
+    + cpp
+      + autom4te.cache
+      + doc
+    + cql
+    + http
+      + autom4te.cache
+      + examples
+        + pwp
+      + figs
+      + web
+        + css
+        + icons
+        + js
+    + inclpr
+      + autom4te.cache
+    + jpl
+      + examples
+        + java
+          + Family
+          + FamilyMT
+          + Test
+          + Test2
+          + Time
+          + Zahed
+        + prolog
+      + src
+        + java
+          + org
+            + jpl7
+              + test
+    + nlp
+      + autom4te.cache
+      + isub
+      + libstemmer_c
+        + examples
+        + include
+        + libstemmer
+        + runtime
+        + src_c
+    + odbc
+      + autom4te.cache
+      + demo
+    + PDT
+    + pengines
+      + examples
+        + web
+      + http
+      + web
+        + css
+        + js
+        + test_js
+    + pldoc
+      + autom4te.cache
+      + server
+    + plunit
+      + autom4te.cache
+      + examples
+    + protobufs
+      + demo
+    + RDF
+      + autom4te.cache
+      + suite
+        + ok
+    + semweb
+      + autom4te.cache
+      + doc
+      + figs
+      + Tests
+        + ntriples
+        + Turtle
+    + sgml
+      + autom4te.cache
+      + DTD
+      + Test
+        + ok
+    + ssl
+      + etc
+        + client
+        + demoCA
+          + newcerts
+          + private
+        + server
+      + tests
+    + swipl-win
+    + table
+      + autom4te.cache
+    + tipc
+      + demo
+      + tipcutils
+    + utf8proc
+      + pgsql
+      + ruby
+        + gem
+    + windows
+      + autom4te.cache
+    + xpce
+      + appl-help
+      + bin
+      + bitmaps
+        + 16x16
+        + 32x32
+        + patterns
+      + Colour
+      + lib
+      + man
+        + course
+          + figs
+          + lib
+          + slides
+            + figs
+        + faq
+        + info
+          + lib
+        + interface
+        + reference
+          + class
+        + userguide
+          + examples
+          + figs
+      + pl
+      + prolog
+        + boot
+        + contrib
+          + rubik
+        + demo
+        + lib
+          + compatibility
+          + dialog
+            + bitmaps
+          + doc
+            + icons
+          + draw
+          + emacs
+          + english
+          + http
+          + man
+          + math
+          + plot
+          + swi
+          + trace
+            + doc
+            + icons
+              + 16x16
+          + xref
+        + pwboot
+        + unsupported
+      + src
+        + adt
+        + ari
+        + autom4te.cache
+        + bitmaps
+        + box
+        + evt
+        + fmt
+        + gnu
+        + gra
+        + h
+        + img
+        + itf
+        + ker
+        + md
+        + men
+        + msg
+        + msw
+        + prg
+        + rel
+        + rgx
+        + test
+        + txt
+        + unx
+        + win
+        + x11
+      + swipl
+      + TeX
+        + figs
+    + zlib
+  + ReleaseNotes
+  + scripts
+  + src
+    + _UpgradeReport_Files
+    + autom4te.cache
+    + compat
+    + config
+    + libtai
+    + os
+      + windows
+    + rc
+    + Tests
+      + attvar
+      + charset
+      + clp
+      + core
+        + reload
+      + eclipse
+      + GC
+      + library
+        + data
+      + save
+        + input
+      + thread
+    + test
+    + tools
+    + Unicode
+    + win32
+      + console
+        + doc
+      + installer
+      + misc
+  + www.swi-prolog.org
+    + download
+      + MS-Windows
+scroll:0
+[State]
+SCREEN: 1920 1080 1261 290 640 964 0 0 M 0 0 0 0 1425 917
+CWD: ..\swipl-devel-unstable
+BUFFER: BN="c:\cygwin64\home\Administrator\lib\swipl\pack-real\logicmoo_base\prolog\logicmoo\mpred\mpred_prolog_file.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.528 CL=58 LE=0 CX=57 CY=17 WI=5 BI=14 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="src\pl-vmi.c"
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=47 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_header.pi"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=21 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo_base.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.5394 CL=71 LE=0 CX=70 CY=31 WI=5 BI=15 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo_user.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.430 CL=3 LE=0 CX=2 CY=20 WI=5 BI=4 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_userkb.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=40 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.10884 CL=40 LE=0 CX=39 CY=23 WI=5 BI=18 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_agenda.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=20 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_diz.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=16 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_kb_ops.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=23 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\bags.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.1814 CL=1 LE=0 CX=0 CY=20 WI=5 BI=24 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\expand.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.736 CL=1 LE=0 CX=0 CY=17 WI=5 BI=22 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\xpce\prolog\lib\pce_grapher.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.8497 CL=9 LE=0 CX=8 CY=20 WI=5 BI=27 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\chr\builtins.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.14648 CL=18 LE=0 CX=17 CY=20 WI=5 BI=31 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="src\test.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.21330 CL=9 LE=0 CX=8 CY=20 WI=5 BI=33 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\xpce\prolog\pwboot\pce_qux.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.7993 CL=1 LE=0 CX=0 CY=20 WI=5 BI=35 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\clib\time.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.4886 CL=41 LE=0 CX=40 CY=20 WI=5 BI=30 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\messages.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.44086 CL=13 LE=0 CX=12 CY=20 WI=5 BI=25 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\init.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.8498 CL=4 LE=0 CX=3 CY=20 WI=5 BI=26 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\load.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.2255 CL=1 LE=0 CX=0 CY=20 WI=5 BI=43 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\xpce\prolog\boot\pce_autoload.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=40 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.3391 CL=21 LE=0 CX=20 CY=17 WI=5 BI=29 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\toplevel.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.21465 CL=9 LE=0 CX=8 CY=46 WI=5 BI=44 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="library\atts.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.5008 CL=61 LE=0 CX=60 CY=46 WI=5 BI=38 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="src\pl-global.h"
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.14180 CL=13 LE=0 CX=12 CY=20 WI=5 BI=45 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="src\pl-attvar.c"
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C	HM=0 MF=96 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.54619 CL=5 LE=0 CX=4 CY=20 WI=5 BI=48 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="test123.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=40 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.1273 CL=1 LE=0 CX=0 CY=20 WI=5 BI=50 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="library\metaterm.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=41 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="..\configuration\swipl-devel-unstable\src\Makefile"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=1 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Makefile	HM=0 MF=96 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.12442 CL=23 LE=0 CX=22 CY=20 WI=5 BI=53 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="src\pl-wam.c"
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C	HM=0 MF=96 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.79030 CL=24 LE=0 CX=23 CY=46 WI=5 BI=49 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="src\pl-incl.h"
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.69631 CL=1 LE=0 CX=0 CY=46 WI=5 BI=46 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\xpce\prolog\boot\pce_realise.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.8697 CL=9 LE=0 CX=8 CY=20 WI=5 BI=28 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\xpce\prolog\lib\trace\trace.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.2271 CL=13 LE=0 CX=12 CY=20 WI=5 BI=40 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="packages\xpce\prolog\pwboot\pce_realise.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.7339 CL=9 LE=0 CX=8 CY=20 WI=5 BI=34 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="library\make.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.2458 CL=9 LE=0 CX=8 CY=46 WI=5 BI=36 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="library\edit.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.2156 CL=9 LE=0 CX=8 CY=46 WI=5 BI=37 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="library\chr\builtins.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.14648 CL=18 LE=0 CX=17 CY=20 WI=5 BI=32 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\autoload.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.5634 CL=9 LE=0 CX=8 CY=46 WI=5 BI=39 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="boot\attvar.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.2631 CL=1 LE=0 CX=0 CY=15 WI=5 BI=42 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_loader.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=40 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.29827 CL=35 LE=0 CX=34 CY=37 WI=5 BI=19 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_listing.pl"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=pl	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0 E=0 ESBU2=-1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=17 HT=0 HN=0 HF=0 HC=4
+WINDOW: 299 299 1126 618 -1 -1 N  WF=0 WT=29 "Default Fixed Font,14,0,1"
+BUFFER: BN="library\metaterm.pl"
+VIEW: LN=.20838 CL=1 LE=0 CX=0 CY=25 WI=150 BI=41 HT=0 HN=0 HF=0 HC=4
+WINDOW: 253 253 1126 618 -1 -1 N  WF=0 WT=40 "Default Fixed Font,14,0,1"
+BUFFER: BN="..\configuration\swipl-devel-unstable\src\Makefile"
+VIEW: LN=.12360 CL=28 LE=0 CX=27 CY=17 WI=89 BI=53 HT=0 HN=0 HF=0 HC=4
+WINDOW: 207 207 1126 618 -1 -1 N  WF=0 WT=39 "Default Fixed Font,14,0,1"
+BUFFER: BN="test123.pl"
+VIEW: LN=.8517 CL=1 LE=0 CX=0 CY=39 WI=176 BI=50 HT=0 HN=0 HF=0 HC=4
+WINDOW: 138 138 1126 618 -1 -1 N  WF=0 WT=36 "Default Fixed Font,14,0,1"
+BUFFER: BN="src\pl-vmi.c"
+VIEW: LN=.54775 CL=38 LE=0 CX=38 CY=24 WI=162 BI=47 HT=0 HN=0 HF=0 HC=4
+WINDOW: 184 184 1126 618 -1 -1 N  WF=0 WT=38 "Default Fixed Font,14,0,1"
+BUFFER: BN="src\pl-wam.c"
+VIEW: LN=.33866 CL=3 LE=0 CX=3 CY=20 WI=166 BI=49 HT=0 HN=0 HF=0 HC=4
+WINDOW: 115 115 1126 618 -1 -1 N  WF=0 WT=35 "Default Fixed Font,14,0,1"
+BUFFER: BN="src\pl-incl.h"
+VIEW: LN=.69431 CL=23 LE=0 CX=22 CY=15 WI=135 BI=46 HT=0 HN=0 HF=0 HC=4
+WINDOW: 161 161 1126 618 -1 -1 N  WF=0 WT=37 "Default Fixed Font,14,0,1"
+BUFFER: BN="src\pl-attvar.c"
+VIEW: LN=.54619 CL=5 LE=0 CX=5 CY=20 WI=165 BI=48 HT=0 HN=0 HF=0 HC=4
+WINDOW: 92 92 1126 618 -1 -1 N  WF=0 WT=34 "Default Fixed Font,14,0,1"
+BUFFER: BN="src\pl-global.h"
+VIEW: LN=.14180 CL=13 LE=0 CX=12 CY=20 WI=161 BI=45 HT=0 HN=0 HF=0 HC=4
+WINDOW: 253 253 1126 618 -1 -1 N  WF=0 WT=27 "Default Fixed Font,14,0,1"
+BUFFER: BN="library\atts.pl"
+VIEW: LN=.5008 CL=61 LE=0 CX=60 CY=20 WI=147 BI=38 HT=0 HN=0 HF=0 HC=4
+WINDOW: 69 69 1126 618 -1 -1 N  WF=0 WT=33 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\toplevel.pl"
+VIEW: LN=.21465 CL=9 LE=0 CX=8 CY=20 WI=157 BI=44 HT=0 HN=0 HF=0 HC=4
+WINDOW: 46 46 1126 618 -1 -1 N  WF=0 WT=18 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\xpce\prolog\boot\pce_autoload.pl"
+VIEW: LN=.3391 CL=21 LE=0 CX=20 CY=17 WI=133 BI=29 HT=0 HN=0 HF=0 HC=4
+WINDOW: 46 46 1126 618 -1 -1 N  WF=0 WT=32 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\load.pl"
+VIEW: LN=.2255 CL=1 LE=0 CX=0 CY=20 WI=255 BI=43 HT=0 HN=0 HF=0 HC=4
+WINDOW: 276 276 1126 618 -1 -1 N  WF=0 WT=14 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\init.pl"
+VIEW: LN=.8498 CL=4 LE=0 CX=3 CY=20 WI=128 BI=26 HT=0 HN=0 HF=0 HC=4
+WINDOW: 23 23 1126 618 -1 -1 N  WF=0 WT=31 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\attvar.pl"
+VIEW: LN=.2631 CL=1 LE=0 CX=0 CY=15 WI=155 BI=42 HT=0 HN=0 HF=0 HC=4
+WINDOW: 276 276 1126 618 -1 -1 N  WF=0 WT=28 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\autoload.pl"
+VIEW: LN=.5634 CL=9 LE=0 CX=8 CY=20 WI=149 BI=39 HT=0 HN=0 HF=0 HC=4
+WINDOW: 115 115 1126 618 -1 -1 N  WF=0 WT=21 "Default Fixed Font,14,0,1"
+BUFFER: BN="library\chr\builtins.pl"
+VIEW: LN=.14648 CL=18 LE=0 CX=17 CY=20 WI=123 BI=32 HT=0 HN=0 HF=0 HC=4
+WINDOW: 230 230 1126 618 -1 -1 N  WF=0 WT=26 "Default Fixed Font,14,0,1"
+BUFFER: BN="library\edit.pl"
+VIEW: LN=.2156 CL=9 LE=0 CX=8 CY=20 WI=145 BI=37 HT=0 HN=0 HF=0 HC=4
+WINDOW: 207 207 1126 618 -1 -1 N  WF=0 WT=25 "Default Fixed Font,14,0,1"
+BUFFER: BN="library\make.pl"
+VIEW: LN=.2458 CL=9 LE=0 CX=8 CY=20 WI=144 BI=36 HT=0 HN=0 HF=0 HC=4
+WINDOW: 161 161 1126 618 -1 -1 N  WF=0 WT=23 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\xpce\prolog\pwboot\pce_realise.pl"
+VIEW: LN=.7339 CL=9 LE=0 CX=8 CY=20 WI=140 BI=34 HT=0 HN=0 HF=0 HC=4
+WINDOW: 0 0 1126 618 -1 -1 N  WF=0 WT=30 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\xpce\prolog\lib\trace\trace.pl"
+VIEW: LN=.2271 CL=13 LE=0 CX=12 CY=20 WI=152 BI=40 HT=0 HN=0 HF=0 HC=4
+WINDOW: 23 23 1126 618 -1 -1 N  WF=0 WT=17 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\xpce\prolog\boot\pce_realise.pl"
+VIEW: LN=.8697 CL=9 LE=0 CX=8 CY=20 WI=129 BI=28 HT=0 HN=0 HF=0 HC=4
+WINDOW: 299 299 1126 618 -1 -1 N  WF=0 WT=15 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\messages.pl"
+VIEW: LN=.44086 CL=13 LE=0 CX=12 CY=20 WI=99 BI=25 HT=0 HN=0 HF=0 HC=4
+WINDOW: 69 69 1126 618 -1 -1 N  WF=0 WT=19 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\clib\time.pl"
+VIEW: LN=.4886 CL=41 LE=0 CX=40 CY=20 WI=131 BI=30 HT=0 HN=0 HF=0 HC=4
+WINDOW: 184 184 1126 618 -1 -1 N  WF=0 WT=24 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\xpce\prolog\pwboot\pce_qux.pl"
+VIEW: LN=.7993 CL=1 LE=0 CX=0 CY=20 WI=141 BI=35 HT=0 HN=0 HF=0 HC=4
+WINDOW: 138 138 1126 618 -1 -1 N  WF=0 WT=22 "Default Fixed Font,14,0,1"
+BUFFER: BN="src\test.pl"
+VIEW: LN=.21330 CL=9 LE=0 CX=8 CY=20 WI=138 BI=33 HT=0 HN=0 HF=0 HC=4
+WINDOW: 92 92 1126 618 -1 -1 N  WF=0 WT=20 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\chr\builtins.pl"
+VIEW: LN=.14648 CL=18 LE=0 CX=17 CY=20 WI=119 BI=31 HT=0 HN=0 HF=0 HC=4
+WINDOW: 0 0 1126 618 -1 -1 N  WF=0 WT=16 "Default Fixed Font,14,0,1"
+BUFFER: BN="packages\xpce\prolog\lib\pce_grapher.pl"
+VIEW: LN=.8497 CL=9 LE=0 CX=8 CY=20 WI=94 BI=27 HT=0 HN=0 HF=0 HC=4
+WINDOW: 253 253 1126 618 -1 -1 N  WF=0 WT=13 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\expand.pl"
+VIEW: LN=.736 CL=1 LE=0 CX=0 CY=17 WI=253 BI=22 HT=0 HN=0 HF=0 HC=4
+WINDOW: 230 230 1126 618 -1 -1 N  WF=0 WT=12 "Default Fixed Font,14,0,1"
+BUFFER: BN="boot\bags.pl"
+VIEW: LN=.1814 CL=1 LE=0 CX=0 CY=20 WI=251 BI=24 HT=0 HN=0 HF=0 HC=4
+WINDOW: 207 207 1126 618 -1 -1 N  WF=0 WT=11 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_kb_ops.pl"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=249 BI=23 HT=0 HN=0 HF=0 HC=4
+WINDOW: 161 161 1126 618 -1 -1 N  WF=0 WT=9 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_diz.pl"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=245 BI=16 HT=0 HN=0 HF=0 HC=4
+WINDOW: 138 138 1126 618 -1 -1 N  WF=0 WT=8 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_agenda.pl"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=243 BI=20 HT=0 HN=0 HF=0 HC=4
+WINDOW: 69 69 1126 618 -1 -1 N  WF=0 WT=5 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_userkb.pl"
+VIEW: LN=.10884 CL=40 LE=0 CX=39 CY=23 WI=239 BI=18 HT=0 HN=0 HF=0 HC=4
+WINDOW: 115 115 1126 618 -1 -1 N  WF=0 WT=7 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_listing.pl"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=241 BI=17 HT=0 HN=0 HF=0 HC=4
+WINDOW: 92 92 1126 618 -1 -1 N  WF=0 WT=6 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_loader.pl"
+VIEW: LN=.29827 CL=35 LE=0 CX=34 CY=37 WI=116 BI=19 HT=0 HN=0 HF=0 HC=4
+WINDOW: 23 23 1324 618 -1 -1 N  WF=0 WT=3 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo_base.pl"
+VIEW: LN=.5394 CL=71 LE=0 CX=70 CY=25 WI=95 BI=15 HT=0 HN=0 HF=0 HC=4
+WINDOW: 46 46 1324 618 -1 -1 N  WF=0 WT=4 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo_user.pl"
+VIEW: LN=.430 CL=3 LE=0 CX=2 CY=20 WI=237 BI=4 HT=0 HN=0 HF=0 HC=4
+WINDOW: 0 0 1324 618 -1 -1 N  WF=0 WT=2 "Default Fixed Font,14,0,1"
+BUFFER: BN="c:\cygwin64\home\Administrator\lib\swipl\pack-real\logicmoo_base\prolog\logicmoo\mpred\mpred_prolog_file.pl"
+VIEW: LN=.528 CL=58 LE=0 CX=57 CY=17 WI=93 BI=14 HT=0 HN=0 HF=0 HC=4
+WINDOW: 184 184 1126 618 -1 -1 M  WF=0 WT=10 "Default Fixed Font,14,0,1"
+BUFFER: BN="t:\root\lib\swipl\pack\logicmoo_base\prolog\logicmoo\mpred\mpred_header.pi"
+VIEW: LN=.468 CL=39 LE=0 CX=38 CY=12 WI=247 BI=21 HT=0 HN=0 HF=0 HC=4
+FILEHIST: 9
+src\pl-global.h
+src\pl-attvar.c
+src\pl-wam.c
+src\pl-incl.h
+src\pl-vmi.c
+..\configuration\swipl-devel-unstable\.doc-action
+test123.pl
+..\configuration\swipl-devel-unstable\src\Makefile
+library\metaterm.pl
+DEBUG: 0 0 3 0 3 0
+00VMIsrc\pl-vmi.c215400
+00substVarsrc\pl-wam.c270510
+00setupMetatermssrc\pl-attvar.c241710
+printf
+strcpy
+std::*

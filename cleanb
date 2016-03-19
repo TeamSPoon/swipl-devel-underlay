@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm -f src/swipl.exe src/swipl.prc
+rm -rf /cygdrive/c/pf/swipl/lib/x86_64-cygwin/libswipl.*
+rm -rf /cygdrive/c/pf/swipl/bin/x86_64-cygwin/
+rm -rf lib/x86_64-cygwin/
+

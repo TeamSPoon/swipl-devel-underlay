@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CA1F73AA-47AC-45CA-AED0-8EF9BEAC64A8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>swipl-devel</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeIncludeSearchPath>C:\cygwin64\usr\local\include;include;C:\cygwin64\usr\include;C:\cygwin64\usr\include\w32api;src;c:/Program Files (x86)/mingw-w64/i686-4.9.2-posix-dwarf-rt_v3-rev0/mingw32/lib/gcc/i686-w64-mingw32/4.9.2/include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)swipl-devel-unstable-Debug.vgdbsettings</NMakeOutput>
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeIncludeSearchPath>C:\cygwin64\usr\local\include;C:\cygwin64\usr\include;C:\cygwin64\usr\include\w32api;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)swipl-devel-unstable-Release.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="boot\attvar.pl" />
+    <None Include="boot\autoload.pl" />
+    <None Include="boot\bags.pl" />
+    <None Include="boot\dcg.pl" />
+    <None Include="boot\dicts.pl" />
+    <None Include="boot\dwim.pl" />
+    <None Include="boot\expand.pl" />
+    <None Include="boot\history.pl" />
+    <None Include="boot\init.pl" />
+    <None Include="boot\license.pl" />
+    <None Include="boot\load.pl" />
+    <None Include="boot\menu.pl" />
+    <None Include="boot\messages.pl" />
+    <None Include="boot\packs.pl" />
+    <None Include="boot\parms.pl" />
+    <None Include="boot\predopts.pl" />
+    <None Include="boot\qlf.pl" />
+    <None Include="boot\rc.pl" />
+    <None Include="boot\syspred.pl" />
+    <None Include="boot\toplevel.pl" />
+    <None Include="boot\topvars.pl" />
+    <None Include="library\chr\a_star.pl" />
+    <None Include="library\chr\binomialheap.pl" />
+    <None Include="library\chr\builtins.pl" />
+    <None Include="library\chr\chr_compiler_errors.pl" />
+    <None Include="library\chr\chr_compiler_options.pl" />
+    <None Include="library\chr\chr_compiler_utility.pl" />
+    <None Include="library\chr\chr_debug.pl" />
+    <None Include="library\chr\chr_hashtable_store.pl" />
+    <None Include="library\chr\chr_integertable_store.pl" />
+    <None Include="library\chr\chr_messages.pl" />
+    <None Include="library\chr\chr_op.pl" />
+    <None Include="library\chr\chr_runtime.pl" />
+    <None Include="library\chr\chr_translate.pl" />
+    <None Include="library\chr\clean_code.pl" />
+    <None Include="library\chr\find.pl" />
+    <None Include="library\chr\guard_entailment.pl" />
+    <None Include="library\chr\listmap.pl" />
+    <None Include="library\chr\pairlist.pl" />
+    <None Include="library\chr\readme.txt" />
+    <None Include="library\http\web\css\dirindex.css" />
+    <None Include="packages.config" />
+    <None Include="swipl-devel-unstable-Debug.vgdbsettings">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="swipl-devel-unstable-Release.vgdbsettings">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClInclude Include="include\SWI-Prolog.h" />
+    <ClInclude Include="include\SWI-Stream.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="src\config.h" />
+    <ClInclude Include="src\parms.h" />
+    <ClInclude Include="src\pentium.h" />
+    <ClInclude Include="src\pl-alloc.h" />
+    <ClInclude Include="src\pl-builtin.h" />
+    <ClInclude Include="src\pl-codelist.h" />
+    <ClInclude Include="src\pl-data.h" />
+    <ClInclude Include="src\pl-dbref.h" />
+    <ClInclude Include="src\pl-debug.h" />
+    <ClInclude Include="src\pl-dict.h" />
+    <ClInclude Include="src\pl-error.h" />
+    <ClInclude Include="src\pl-funcs.h" />
+    <ClInclude Include="src\pl-global.h" />
+    <ClInclude Include="src\pl-gmp.h" />
+    <ClInclude Include="src\pl-hash.h" />
+    <ClInclude Include="src\pl-incl.h" />
+    <ClInclude Include="src\pl-init.h" />
+    <ClInclude Include="src\pl-inline.h" />
+    <ClInclude Include="src\pl-ldpass.h" />
+    <ClInclude Include="src\pl-mutex.h" />
+    <ClInclude Include="src\pl-privitf.h" />
+    <ClInclude Include="src\pl-prof.h" />
+    <ClInclude Include="src\pl-ressymbol.h" />
+    <ClInclude Include="src\pl-segstack.h" />
+    <ClInclude Include="src\pl-thread.h" />
+    <ClInclude Include="src\pl-vmi.h" />
+    <ClInclude Include="src\SWI-Prolog.h" />
+    <ClInclude Include="src\version.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">m</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\compat\sicstus.h" />
+    <ClInclude Include="src\compat\YapInterface.h" />
+    <ClInclude Include="src\config\win32.h" />
+    <ClInclude Include="src\config\win64.h" />
+    <ClInclude Include="src\config\wincfg.h" />
+    <ClInclude Include="src\libtai\caldate.h" />
+    <ClInclude Include="src\libtai\caltime.h" />
+    <ClInclude Include="src\libtai\leapsecs.h" />
+    <ClInclude Include="src\libtai\tai.h" />
+    <ClInclude Include="src\libtai\taia.h" />
+    <ClInclude Include="src\os\pl-buffer.h" />
+    <ClInclude Include="src\os\pl-cstack.h" />
+    <ClInclude Include="src\os\pl-ctype.h" />
+    <ClInclude Include="src\os\pl-dtoa.h" />
+    <ClInclude Include="src\os\pl-file.h" />
+    <ClInclude Include="src\os\pl-files.h" />
+    <ClInclude Include="src\os\pl-locale.h" />
+    <ClInclude Include="src\os\pl-option.h" />
+    <ClInclude Include="src\os\pl-os.h" />
+    <ClInclude Include="src\os\pl-string.h" />
+    <ClInclude Include="src\os\pl-table.h" />
+    <ClInclude Include="src\os\pl-text.h" />
+    <ClInclude Include="src\os\pl-utf8.h" />
+    <ClInclude Include="src\os\SWI-Stream.h" />
+    <ClInclude Include="src\os\windows\dirent.h" />
+    <ClInclude Include="src\os\windows\utf8.h" />
+    <ClInclude Include="src\os\windows\uxnt.h" />
+    <ClInclude Include="src\rc\html.h" />
+    <ClInclude Include="src\rc\rc.h" />
+    <ClInclude Include="src\rc\rcutil.h" />
+    <ClInclude Include="src\win32\console\common.h" />
+    <ClInclude Include="src\win32\console\console.h" />
+    <ClInclude Include="src\win32\console\console_i.h" />
+    <ClInclude Include="src\win32\console\history.h" />
+    <ClInclude Include="src\win32\console\menu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\alloca.c" />
+    <ClCompile Include="src\defatom.c" />
+    <ClCompile Include="src\hello.c" />
+    <ClCompile Include="src\mkvmi.c" />
+    <ClCompile Include="src\pentium.c" />
+    <ClCompile Include="src\pl-alloc.c" />
+    <ClCompile Include="src\pl-arith.c" />
+    <ClCompile Include="src\pl-atom.c" />
+    <ClCompile Include="src\pl-attvar.c" />
+    <ClCompile Include="src\pl-bag.c" />
+    <ClCompile Include="src\pl-beos.c" />
+    <ClCompile Include="src\pl-btree.c" />
+    <ClCompile Include="src\pl-codetable.c" />
+    <ClCompile Include="src\pl-comp.c" />
+    <ClCompile Include="src\pl-cont.c" />
+    <ClCompile Include="src\pl-copyterm.c" />
+    <ClCompile Include="src\pl-dbref.c" />
+    <ClCompile Include="src\pl-dde.c" />
+    <ClCompile Include="src\pl-debug.c" />
+    <ClCompile Include="src\pl-dict.c" />
+    <ClCompile Include="src\pl-dra.c" />
+    <ClCompile Include="src\pl-dwim.c" />
+    <ClCompile Include="src\pl-error.c" />
+    <ClCompile Include="src\pl-ext.c" />
+    <ClCompile Include="src\pl-flag.c" />
+    <ClCompile Include="src\pl-fli.c" />
+    <ClCompile Include="src\pl-funct.c" />
+    <ClCompile Include="src\pl-gc.c" />
+    <ClCompile Include="src\pl-gmp.c" />
+    <ClCompile Include="src\pl-gvar.c" />
+    <ClCompile Include="src\pl-hash.c" />
+    <ClCompile Include="src\pl-index.c" />
+    <ClCompile Include="src\pl-init.c" />
+    <ClCompile Include="src\pl-list.c" />
+    <ClCompile Include="src\pl-load.c" />
+    <ClCompile Include="src\pl-main.c" />
+    <ClCompile Include="src\pl-modul.c" />
+    <ClCompile Include="src\pl-nt.c" />
+    <ClCompile Include="src\pl-ntconsole.c" />
+    <ClCompile Include="src\pl-ntmain.c" />
+    <ClCompile Include="src\pl-op.c" />
+    <ClCompile Include="src\pl-prims.c" />
+    <ClCompile Include="src\pl-privitf.c" />
+    <ClCompile Include="src\pl-pro.c" />
+    <ClCompile Include="src\pl-proc.c" />
+    <ClCompile Include="src\pl-prof.c" />
+    <ClCompile Include="src\pl-rc.c" />
+    <ClCompile Include="src\pl-read.c" />
+    <ClCompile Include="src\pl-rec.c" />
+    <ClCompile Include="src\pl-ressymbol.c" />
+    <ClCompile Include="src\pl-segstack.c" />
+    <ClCompile Include="src\pl-setup.c" />
+    <ClCompile Include="src\pl-srcfile.c" />
+    <ClCompile Include="src\pl-string.c" />
+    <ClCompile Include="src\pl-supervisor.c" />
+    <ClCompile Include="src\pl-sys.c" />
+    <ClCompile Include="src\pl-term.c" />
+    <ClCompile Include="src\pl-termhash.c" />
+    <ClCompile Include="src\pl-termwalk.c" />
+    <ClCompile Include="src\pl-thread.c" />
+    <ClCompile Include="src\pl-trace.c" />
+    <ClCompile Include="src\pl-umap.c" />
+    <ClCompile Include="src\pl-util.c" />
+    <ClCompile Include="src\pl-variant.c" />
+    <ClCompile Include="src\pl-version.c" />
+    <ClCompile Include="src\pl-wam.c" />
+    <ClCompile Include="src\pl-vmi.c" />
+    <ClCompile Include="src\pl-wic.c" />
+    <ClCompile Include="src\pl-write.c" />
+    <ClCompile Include="src\pl-xterm.c" />
+    <ClCompile Include="src\swipl-ld.c" />
+    <ClCompile Include="src\libtai\caldate_fmjd.c" />
+    <ClCompile Include="src\libtai\caldate_fmt.c" />
+    <ClCompile Include="src\libtai\caldate_mjd.c" />
+    <ClCompile Include="src\libtai\caldate_norm.c" />
+    <ClCompile Include="src\libtai\caldate_scan.c" />
+    <ClCompile Include="src\libtai\caldate_ster.c" />
+    <ClCompile Include="src\libtai\caltime_fmt.c" />
+    <ClCompile Include="src\libtai\caltime_scan.c" />
+    <ClCompile Include="src\libtai\caltime_tai.c" />
+    <ClCompile Include="src\libtai\caltime_utc.c" />
+    <ClCompile Include="src\libtai\check.c" />
+    <ClCompile Include="src\libtai\easter.c" />
+    <ClCompile Include="src\libtai\leapsecs.c" />
+    <ClCompile Include="src\libtai\leapsecs_add.c" />
+    <ClCompile Include="src\libtai\leapsecs_init.c" />
+    <ClCompile Include="src\libtai\leapsecs_read.c" />
+    <ClCompile Include="src\libtai\leapsecs_sub.c" />
+    <ClCompile Include="src\libtai\nowutc.c" />
+    <ClCompile Include="src\libtai\taia_add.c" />
+    <ClCompile Include="src\libtai\taia_approx.c" />
+    <ClCompile Include="src\libtai\taia_fmtfrac.c" />
+    <ClCompile Include="src\libtai\taia_frac.c" />
+    <ClCompile Include="src\libtai\taia_half.c" />
+    <ClCompile Include="src\libtai\taia_less.c" />
+    <ClCompile Include="src\libtai\taia_now.c" />
+    <ClCompile Include="src\libtai\taia_pack.c" />
+    <ClCompile Include="src\libtai\taia_sub.c" />
+    <ClCompile Include="src\libtai\taia_tai.c" />
+    <ClCompile Include="src\libtai\taia_unpack.c" />
+    <ClCompile Include="src\libtai\tai_add.c" />
+    <ClCompile Include="src\libtai\tai_now.c" />
+    <ClCompile Include="src\libtai\tai_pack.c" />
+    <ClCompile Include="src\libtai\tai_sub.c" />
+    <ClCompile Include="src\libtai\tai_unpack.c" />
+    <ClCompile Include="src\libtai\yearcal.c" />
+    <ClCompile Include="src\os\dtoa.c" />
+    <ClCompile Include="src\os\pl-buffer.c" />
+    <ClCompile Include="src\os\pl-codelist.c" />
+    <ClCompile Include="src\os\pl-cstack.c" />
+    <ClCompile Include="src\os\pl-ctype.c" />
+    <ClCompile Include="src\os\pl-dtoa.c" />
+    <ClCompile Include="src\os\pl-file.c" />
+    <ClCompile Include="src\os\pl-files.c" />
+    <ClCompile Include="src\os\pl-fmt.c" />
+    <ClCompile Include="src\os\pl-glob.c" />
+    <ClCompile Include="src\os\pl-locale.c" />
+    <ClCompile Include="src\os\pl-option.c" />
+    <ClCompile Include="src\os\pl-os.c" />
+    <ClCompile Include="src\os\pl-prologflag.c" />
+    <ClCompile Include="src\os\pl-rl.c" />
+    <ClCompile Include="src\os\pl-stream.c" />
+    <ClCompile Include="src\os\pl-string.c" />
+    <ClCompile Include="src\os\pl-table.c" />
+    <ClCompile Include="src\os\pl-tai.c" />
+    <ClCompile Include="src\os\pl-text.c" />
+    <ClCompile Include="src\os\pl-utf8.c" />
+    <ClCompile Include="src\os\windows\dwarf-debug.c" />
+    <ClCompile Include="src\os\windows\popen.c" />
+    <ClCompile Include="src\os\windows\utf8.c" />
+    <ClCompile Include="src\os\windows\uxnt.c" />
+    <ClCompile Include="src\rc\access.c" />
+    <ClCompile Include="src\rc\build.c" />
+    <ClCompile Include="src\rc\html.c" />
+    <ClCompile Include="src\rc\rc.c" />
+    <ClCompile Include="src\rc\util.c" />
+    <ClCompile Include="src\test\dmalloc.c" />
+    <ClCompile Include="src\test\lwrcase.c" />
+    <ClCompile Include="src\test\nop.c" />
+    <ClCompile Include="src\test\recmutex.c" />
+    <ClCompile Include="src\win32\console\complete.c" />
+    <ClCompile Include="src\win32\console\console.c" />
+    <ClCompile Include="src\win32\console\edit.c" />
+    <ClCompile Include="src\win32\console\history.c" />
+    <ClCompile Include="src\win32\console\menu.c" />
+    <ClCompile Include="src\win32\console\registry.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="swipl-devel-unstable1.rc" />
+  </ItemGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+</Project>

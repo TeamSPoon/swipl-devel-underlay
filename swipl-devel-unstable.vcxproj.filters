@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{186cabc3-9579-405a-b280-b23d1a7ac8e8}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;CXX;TXT;dcl;dtd;soc;ent;css;js;sty</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{02a6ca99-06c3-4302-8857-3796e9601de9}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header files\include">
+      <UniqueIdentifier>{0da2862d-2eb2-4fd8-ac81-a5d32c8bb710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src">
+      <UniqueIdentifier>{c4a9df69-9bdb-4e1f-8fc4-6e61a24b26ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src">
+      <UniqueIdentifier>{d150490e-dfad-4ab4-8fee-84ff0b369fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\compat">
+      <UniqueIdentifier>{d43b7cec-8fa9-436d-be97-c149f974f599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\config">
+      <UniqueIdentifier>{fe6776e3-a7bb-416e-949b-6da622a796e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\libtai">
+      <UniqueIdentifier>{b8c3b745-4842-47ca-aeac-2fa252ec0c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\libtai">
+      <UniqueIdentifier>{d87de05b-96e5-4cde-a79f-4f715d00ef7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\os">
+      <UniqueIdentifier>{8bc7e099-8e36-4fc9-aedf-dbe14c8ac48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\os">
+      <UniqueIdentifier>{9fd30e06-148c-46a6-8cf0-305f49049cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\os\windows">
+      <UniqueIdentifier>{c1616101-78af-489a-9ede-78108f1b0648}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\os\windows">
+      <UniqueIdentifier>{feab2cac-552a-42c6-b0a9-5bd61664fc4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\rc">
+      <UniqueIdentifier>{005fa981-4194-4273-b6db-f17e64ca13bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\rc">
+      <UniqueIdentifier>{6418c2ea-da73-4861-9f69-04f12bbd2032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\test">
+      <UniqueIdentifier>{60942aa6-053a-4621-9e1d-6be6027611d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\win32">
+      <UniqueIdentifier>{de1354a1-1d45-4bc9-ae64-e256fea1ef7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\src\win32\console">
+      <UniqueIdentifier>{49376498-7508-404f-91d3-dfcf3aeb0835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\win32">
+      <UniqueIdentifier>{72681710-4d7e-4c99-ab6e-c3076dfb126b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\src\win32\console">
+      <UniqueIdentifier>{7c54a54f-d49f-4eaf-94a0-5b29396c1277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisualGDB settings">
+      <UniqueIdentifier>{060571ac-b9af-44f9-a61e-7b2ce94f15a5}</UniqueIdentifier>
+      <Extensions>*.vgdbsettings</Extensions>
+    </Filter>
+    <Filter Include="Prolog files">
+      <UniqueIdentifier>{29dd65b6-69ee-414d-8fd2-caecd72dc5de}</UniqueIdentifier>
+      <Extensions>pl</Extensions>
+    </Filter>
+    <Filter Include="Header files\boot">
+      <UniqueIdentifier>{f175f55f-63ee-444e-afba-c5dba61ffbd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prolog files\boot">
+      <UniqueIdentifier>{1a0efccf-af8a-473f-b6db-21621c8e237d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prolog files\chr">
+      <UniqueIdentifier>{bf2004b1-6ec0-4914-8e52-13eca4a05e50}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\SWI-Prolog.h">
+      <Filter>Header files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SWI-Stream.h">
+      <Filter>Header files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parms.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pentium.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-alloc.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-builtin.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-codelist.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-data.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-dbref.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-debug.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-dict.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-error.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-funcs.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-global.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-gmp.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-hash.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-init.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-inline.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-ldpass.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-mutex.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-privitf.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-prof.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-ressymbol.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-segstack.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-thread.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-vmi.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SWI-Prolog.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\version.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\compat\sicstus.h">
+      <Filter>Header files\src\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\compat\YapInterface.h">
+      <Filter>Header files\src\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config\win32.h">
+      <Filter>Header files\src\config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config\win64.h">
+      <Filter>Header files\src\config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config\wincfg.h">
+      <Filter>Header files\src\config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libtai\caldate.h">
+      <Filter>Header files\src\libtai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libtai\caltime.h">
+      <Filter>Header files\src\libtai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libtai\leapsecs.h">
+      <Filter>Header files\src\libtai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libtai\tai.h">
+      <Filter>Header files\src\libtai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libtai\taia.h">
+      <Filter>Header files\src\libtai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-buffer.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-cstack.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-ctype.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-dtoa.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-file.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-files.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-locale.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-option.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-os.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-string.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-table.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-text.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\pl-utf8.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\SWI-Stream.h">
+      <Filter>Header files\src\os</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\windows\dirent.h">
+      <Filter>Header files\src\os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\windows\utf8.h">
+      <Filter>Header files\src\os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\os\windows\uxnt.h">
+      <Filter>Header files\src\os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rc\html.h">
+      <Filter>Header files\src\rc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rc\rc.h">
+      <Filter>Header files\src\rc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rc\rcutil.h">
+      <Filter>Header files\src\rc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\console\common.h">
+      <Filter>Header files\src\win32\console</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\console\console.h">
+      <Filter>Header files\src\win32\console</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\console\console_i.h">
+      <Filter>Header files\src\win32\console</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\console\history.h">
+      <Filter>Header files\src\win32\console</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\console\menu.h">
+      <Filter>Header files\src\win32\console</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl-incl.h">
+      <Filter>Header files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\alloca.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\defatom.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hello.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mkvmi.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pentium.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-alloc.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-arith.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-atom.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-attvar.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-bag.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-beos.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-btree.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-codetable.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-comp.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-cont.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-copyterm.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-dbref.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-dde.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-debug.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-dict.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-dra.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-dwim.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-error.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-ext.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-flag.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-fli.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-funct.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-gc.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-gmp.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-gvar.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-hash.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-index.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-init.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-list.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-load.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-main.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-modul.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-nt.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-ntconsole.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-ntmain.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-op.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-prims.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-privitf.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-pro.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-proc.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-prof.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-rc.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-read.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-rec.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-ressymbol.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-segstack.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-setup.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-srcfile.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-string.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-supervisor.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-sys.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-term.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-termhash.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-termwalk.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-thread.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-trace.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-umap.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-util.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-variant.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-version.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-wam.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-wic.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-write.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-xterm.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\swipl-ld.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caldate_fmjd.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caldate_fmt.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caldate_mjd.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caldate_norm.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caldate_scan.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caldate_ster.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caltime_fmt.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caltime_scan.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caltime_tai.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\caltime_utc.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\check.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\easter.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\leapsecs.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\leapsecs_add.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\leapsecs_init.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\leapsecs_read.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\leapsecs_sub.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\nowutc.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_add.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_approx.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_fmtfrac.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_frac.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_half.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_less.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_now.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_pack.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_sub.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_tai.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\taia_unpack.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\tai_add.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\tai_now.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\tai_pack.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\tai_sub.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\tai_unpack.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libtai\yearcal.c">
+      <Filter>Source files\src\libtai</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\dtoa.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-buffer.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-codelist.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-cstack.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-ctype.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-dtoa.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-file.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-files.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-fmt.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-glob.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-locale.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-option.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-os.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-prologflag.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-rl.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-stream.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-string.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-table.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-tai.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-text.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\pl-utf8.c">
+      <Filter>Source files\src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\windows\dwarf-debug.c">
+      <Filter>Source files\src\os\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\windows\popen.c">
+      <Filter>Source files\src\os\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\windows\utf8.c">
+      <Filter>Source files\src\os\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\os\windows\uxnt.c">
+      <Filter>Source files\src\os\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rc\access.c">
+      <Filter>Source files\src\rc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rc\build.c">
+      <Filter>Source files\src\rc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rc\html.c">
+      <Filter>Source files\src\rc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rc\rc.c">
+      <Filter>Source files\src\rc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rc\util.c">
+      <Filter>Source files\src\rc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\dmalloc.c">
+      <Filter>Source files\src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\lwrcase.c">
+      <Filter>Source files\src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\nop.c">
+      <Filter>Source files\src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\recmutex.c">
+      <Filter>Source files\src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\console\complete.c">
+      <Filter>Source files\src\win32\console</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\console\console.c">
+      <Filter>Source files\src\win32\console</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\console\edit.c">
+      <Filter>Source files\src\win32\console</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\console\history.c">
+      <Filter>Source files\src\win32\console</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\console\menu.c">
+      <Filter>Source files\src\win32\console</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\console\registry.c">
+      <Filter>Source files\src\win32\console</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pl-vmi.c">
+      <Filter>Source files\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="swipl-devel-unstable-Debug.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="swipl-devel-unstable-Release.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="boot\attvar.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\autoload.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\bags.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\dcg.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\dicts.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\dwim.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\expand.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\history.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\init.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\license.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\load.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\menu.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\messages.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\packs.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\parms.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\predopts.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\qlf.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\rc.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\syspred.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\toplevel.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="boot\topvars.pl">
+      <Filter>Prolog files\boot</Filter>
+    </None>
+    <None Include="packages.config" />
+    <None Include="library\http\web\css\dirindex.css">
+      <Filter>Source files</Filter>
+    </None>
+    <None Include="library\chr\a_star.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\binomialheap.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\builtins.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_compiler_errors.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_compiler_options.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_compiler_utility.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_debug.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_hashtable_store.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_integertable_store.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_messages.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_op.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_runtime.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\chr_translate.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\clean_code.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\find.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\guard_entailment.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\listmap.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\pairlist.pl">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+    <None Include="library\chr\readme.txt">
+      <Filter>Prolog files\chr</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="swipl-devel-unstable1.rc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1193 @@
+diff --git a/boot/attvar.pl b/boot/attvar.pl
+index aba071c..bfab197 100644
+--- a/boot/attvar.pl
++++ b/boot/attvar.pl
+@@ -31,7 +31,8 @@
+ :- module('$attvar',
+ 	  [ '$wakeup'/1,		% +Wakeup list
+             % undo/1,                     % :Goal
+-            % freeze/2,			% +Var, :Goal
++            freeze/2,			% +Var, :Goal
++            unfreeze/1,
+ 	    frozen/2,			% @Var, -Goal
+ 	    call_residue_vars/2,        % :Goal, -Vars
+ 	    copy_term/3                 % +Term, -Copy, -Residue
+@@ -64,35 +65,10 @@ system:goals_with_module([G|Gs], M):- !,
+ 	system:goals_with_module(Gs, M).
+ system:goals_with_module(_,_).
+ 
+-:- meta_predicate(system:ifdef(0,0)).
+-system:ifdef(IfDef,Else):-'$c_current_predicate'(_, IfDef)->IfDef;Else.
+-
+-
+-% nop/1 is for disabling code while staying in syntax
+-system:nop(_).
+-system:nop(_,_).
+-system:nop(_,_,_).
+-system:nop(_,_,_,_).
+-system:nop(_,_,_,_,_).
+-system:nop(_,_,_,_,_,_).
+-system:nop(_,_,_,_,_,_,_).
+-system:nop(_,_,_,_,_,_,_,_).
+-
+-system:'$metaterm_call'(A,B,C,D,E,F,G,P):- amsgc('call'(P,A,B,C,D,E,F,G)).
+-system:'$metaterm_call'(A,B,C,D,E,F,P):- amsgc('call'(P,A,B,C,D,E,F)).
+-system:'$metaterm_call'(A,B,C,D,E,P):- amsgc('call'(P,A,B,C,D,E)).
+-system:'$metaterm_call'(A,B,C,D,P):- amsgc('call'(P,A,B,C,D)).
+-system:'$metaterm_call'(A,B,C,P):- amsgc('call'(P,A,B,C)).
+-system:'$metaterm_call'(A,B,P):- amsgc('call'(P,A,B)).
+-system:'$metaterm_call'(A,P):- trace, amsgc('call'(P,A)).
+-
+-amsgc(C):-amsg(C),with_metaterm_disabled(C).
+-
+-amsg(G):- notrace(
+-   ignore(( % current_prolog_flag(dmiles,true),
+-           with_metaterm_disabled(global,(ifdef(logicmoo_util_dmsg:dmsg(G),
+-                  format(user_error,'~N,~q~n',[G]))))))).
+ 
++:- meta_predicate run_crv(0,*,*,*).
++:- meta_predicate unfreeze(0).
++:- meta_predicate freeze:attr_unify_hook(0,*).
+ 
+ 
+ 
+diff --git a/boot/bags.pl b/boot/bags.pl
+index 4ad0497..63ffe8b 100644
+--- a/boot/bags.pl
++++ b/boot/bags.pl
+@@ -45,6 +45,10 @@
+ 	bagof(?, ^, -),
+ 	setof(?, ^, -).
+ 
++:- meta_predicate '$bags':findnsols_loop(*,*,0,*,*).
++:- meta_predicate '$bags':findall_loop(*,0,*,*).
++
++
+ :- noprofile((
+ 	findall/4,
+ 	findall/3,
+diff --git a/boot/expand.pl b/boot/expand.pl
+index 5501e85..1eff20c 100644
+--- a/boot/expand.pl
++++ b/boot/expand.pl
+@@ -83,6 +83,10 @@ expansion.
+ :- meta_predicate
+ 	expand_terms(4, +, ?, -, -).
+ 
++:- meta_predicate 
++        expand_term_list(4,*,*,*,*).
++
++
+ %%	expand_term(+Input, -Output) is det.
+ %%	expand_term(+Input, +Pos0, -Output, -Pos) is det.
+ %
+diff --git a/boot/init.pl b/boot/init.pl
+index 83deac5..8be1636 100644
+--- a/boot/init.pl
++++ b/boot/init.pl
+@@ -69,6 +69,7 @@ attempt to call the Prolog defined trace interceptor.
+         interp(+,:),
+         nondet(:),
+         det(:).
++
+     
+ 
+ %%	dynamic(+Spec)
+@@ -205,12 +206,43 @@ public(Spec)		 :- '$set_pattr'(Spec, pred, (public)).
+ 	call_cleanup(0,?,0).
+ 
+ 
+-system:amsg(G):- notrace(
+-   ignore((current_prolog_flag(dmiles,true),
++
++% nop/1 is for disabling code while staying in syntax
++nop(_).
++nop(_,_).
++nop(_,_,_).
++nop(_,_,_,_).
++nop(_,_,_,_,_).
++nop(_,_,_,_,_,_).
++nop(_,_,_,_,_,_,_).
++nop(_,_,_,_,_,_,_,_).
++
++:- meta_predicate(ifdef(+,0)).
++ifdef(IfDef,Else):-'$c_current_predicate'(_, IfDef)->IfDef;Else.
++
++'$metaterm_callp'(A,B,C,D,E,F,G,P):- amsgc('call'(P,A,B,C,D,E,F,G)).
++'$metaterm_callp'(A,B,C,D,E,F,P):- amsgc('call'(P,A,B,C,D,E,F)).
++'$metaterm_callp'(A,B,C,D,E,P):- amsgc('call'(P,A,B,C,D,E)).
++'$metaterm_callp'(A,B,C,D,P):- amsgc('call'(P,A,B,C,D)).
++'$metaterm_callp'(A,B,C,P):- amsgc('call'(P,A,B,C)).
++'$metaterm_callp'(A,B,P):- amsgc('call'(P,A,B)).
++'$metaterm_callp'(A,P):- amsgc('call'(P,A)).
++
++'$metaterm_call'(P,A,B,C,D,E,F,G):- amsgc('call'(P,A,B,C,D,E,F,G)).
++'$metaterm_call'(P,A,B,C,D,E,F):- amsgc('call'(P,A,B,C,D,E,F)).
++'$metaterm_call'(P,A,B,C,D,E):- amsgc('call'(P,A,B,C,D,E)).
++'$metaterm_call'(P,A,B,C,D):- amsgc('call'(P,A,B,C,D)).
++'$metaterm_call'(P,A,B,C):- amsgc('call'(P,A,B,C)).
++'$metaterm_call'(P,A,B):- amsgc('call'(P,A,B)).
++'$metaterm_call'(P,A):- amsgc('call'(P,A)).
++
++amsgc(C):-amsg(C),with_metaterm_disabled(C).
++
++amsg(G):- notrace(
++   ignore(( % current_prolog_flag(dmiles,true),
+            with_metaterm_disabled(global,(ifdef(logicmoo_util_dmsg:dmsg(G),
+                   format(user_error,'~N,~q~n',[G]))))))).
+ 
+-
+ :- meta_predicate with_metaterm_disabled(?,0),
+                   with_metaterm_enabled(?,0),
+                   with_no_wakeups(0),
+diff --git a/boot/parms.pl b/boot/parms.pl
+index b911dab..baf91e0 100644
+--- a/boot/parms.pl
++++ b/boot/parms.pl
+@@ -36,6 +36,10 @@
+ :- dynamic
+ 	user:library_directory/1.
+ 
++:- meta_predicate
++        cached_library_directory(?,?,?).
++
++
+ :- dynamic
+ 	library_directory_cache/2.
+ :- volatile
+@@ -66,7 +70,8 @@ cached_library_directory(CacheName, _, Dir) :-
+ 	library_directory_cache(CacheName, Dir), !,
+ 	Dir \== [].
+ cached_library_directory(CacheName, Goal, Dir) :-
+-	catch(Goal, _, fail),
++        % hide from check/0
++	catch(call(call,Goal), _, fail),
+ 	exists_directory(Dir), !,
+ 	asserta(library_directory_cache(CacheName, Dir)).
+ cached_library_directory(CacheName, _, _) :-
+diff --git a/boot/syspred.pl b/boot/syspred.pl
+index 12e0458..7b9c77a 100644
+--- a/boot/syspred.pl
++++ b/boot/syspred.pl
+@@ -85,6 +85,9 @@
+ :- meta_predicate
+ 	map_bits(2, +, +, -).
+ 
++:- meta_predicate bit(2,?,?).
++
++
+ map_bits(_, Var, _, _) :-
+ 	var(Var), !,
+ 	'$instantiation_error'(Var).
+diff --git a/boot/toplevel.pl b/boot/toplevel.pl
+index 643f943..a3730b4 100644
+--- a/boot/toplevel.pl
++++ b/boot/toplevel.pl
+@@ -43,6 +43,9 @@
+ 	    ]).
+ 
+ 
++:- meta_predicate residue_vars(0,*).
++:- meta_predicate '$execute_goal2'(0,*).
++
+ 		 /*******************************
+ 		 *	 FILE_SEARCH_PATH	*
+ 		 *******************************/
+@@ -382,7 +385,8 @@ set_window_title([File|More]) :-
+ 	;   Extra = ['...']
+ 	),
+ 	atomic_list_concat(['SWI-Prolog --', File | Extra], ' ', Title),
+-	system:window_title(_, Title).
++        % sort of to hide the missing predicate from check/0
++	ignore(catch(call(call,window_title,_, Title),_,true)). 
+ set_window_title(_).
+ 
+ 
+diff --git a/configure b/configure
+index eb28fec..215d044 100755
+--- a/configure
++++ b/configure
+@@ -11,6 +11,8 @@ TARGET=lite
+ configoptions=""
+ kerneloptions=""
+ 
++echo $0 $*
++
+ usage()
+ { cat << _EOM_
+ Usage: configure option ...
+diff --git a/packages/ac_swi_noc.m4 b/packages/ac_swi_noc.m4
+index 9ae4e45..68b9e7f 100644
+--- a/packages/ac_swi_noc.m4
++++ b/packages/ac_swi_noc.m4
+@@ -27,3 +27,5 @@ case "$PLARCH" in
+ esac
+ 
+ AC_PROG_INSTALL
++
++#-lgmp -lncursesw
+diff --git a/packages/chr b/packages/chr
+--- a/packages/chr
++++ b/packages/chr
+@@ -1 +1 @@
+-Subproject commit 1c1ae59610bf80743038b3d891ed53421b132ef3
++Subproject commit 1c1ae59610bf80743038b3d891ed53421b132ef3-dirty
+diff --git a/packages/clib b/packages/clib
+--- a/packages/clib
++++ b/packages/clib
+@@ -1 +1 @@
+-Subproject commit 1004f901839b474666b5802fd50d193a99245327
++Subproject commit 1004f901839b474666b5802fd50d193a99245327-dirty
+diff --git a/packages/odbc b/packages/odbc
+--- a/packages/odbc
++++ b/packages/odbc
+@@ -1 +1 @@
+-Subproject commit dc48e5b33886180c9bbe6ba5dbf0947350d50673
++Subproject commit dc48e5b33886180c9bbe6ba5dbf0947350d50673-dirty
+diff --git a/packages/swipl-win b/packages/swipl-win
+--- a/packages/swipl-win
++++ b/packages/swipl-win
+@@ -1 +1 @@
+-Subproject commit bd7b7fb2e390f6cf9b8cc80ba2da8c5f4517ca65
++Subproject commit bd7b7fb2e390f6cf9b8cc80ba2da8c5f4517ca65-dirty
+diff --git a/packages/xpce b/packages/xpce
+--- a/packages/xpce
++++ b/packages/xpce
+@@ -1 +1 @@
+-Subproject commit d6acd045f5cde7272d531cee3da7f5730e34d3c3
++Subproject commit d6acd045f5cde7272d531cee3da7f5730e34d3c3-dirty
+diff --git a/packages/zlib b/packages/zlib
+--- a/packages/zlib
++++ b/packages/zlib
+@@ -1 +1 @@
+-Subproject commit 605811ed2d3a98b91b887007118155635eb6fa5f
++Subproject commit 605811ed2d3a98b91b887007118155635eb6fa5f-dirty
+diff --git a/src/config.guess b/src/config.guess
+index 872b96a..b79252d 100755
+--- a/src/config.guess
++++ b/src/config.guess
+@@ -1,14 +1,12 @@
+ #! /bin/sh
+ # Attempt to guess a canonical system name.
+-#   Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+-#   2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+-#   2011, 2012 Free Software Foundation, Inc.
++#   Copyright 1992-2013 Free Software Foundation, Inc.
+ 
+-timestamp='2012-09-25'
++timestamp='2013-06-10'
+ 
+ # This file is free software; you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License as published by
+-# the Free Software Foundation; either version 2 of the License, or
++# the Free Software Foundation; either version 3 of the License, or
+ # (at your option) any later version.
+ #
+ # This program is distributed in the hope that it will be useful, but
+@@ -22,19 +20,17 @@ timestamp='2012-09-25'
+ # As a special exception to the GNU General Public License, if you
+ # distribute this file as part of a program that contains a
+ # configuration script generated by Autoconf, you may include it under
+-# the same distribution terms that you use for the rest of that program.
+-
+-
+-# Originally written by Per Bothner.  Please send patches (context
+-# diff format) to <config-patches@gnu.org> and include a ChangeLog
+-# entry.
++# the same distribution terms that you use for the rest of that
++# program.  This Exception is an additional permission under section 7
++# of the GNU General Public License, version 3 ("GPLv3").
+ #
+-# This script attempts to guess a canonical system name similar to
+-# config.sub.  If it succeeds, it prints the system name on stdout, and
+-# exits with 0.  Otherwise, it exits with 1.
++# Originally written by Per Bothner.
+ #
+ # You can get the latest version of this script from:
+ # http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD
++#
++# Please send patches with a ChangeLog entry to config-patches@gnu.org.
++
+ 
+ me=`echo "$0" | sed -e 's,.*/,,'`
+ 
+@@ -54,9 +50,7 @@ version="\
+ GNU config.guess ($timestamp)
+ 
+ Originally written by Per Bothner.
+-Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
+-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
+-Free Software Foundation, Inc.
++Copyright 1992-2013 Free Software Foundation, Inc.
+ 
+ This is free software; see the source for copying conditions.  There is NO
+ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+@@ -138,6 +132,27 @@ UNAME_RELEASE=`(uname -r) 2>/dev/null` || UNAME_RELEASE=unknown
+ UNAME_SYSTEM=`(uname -s) 2>/dev/null`  || UNAME_SYSTEM=unknown
+ UNAME_VERSION=`(uname -v) 2>/dev/null` || UNAME_VERSION=unknown
+ 
++case "${UNAME_SYSTEM}" in
++Linux|GNU|GNU/*)
++	# If the system lacks a compiler, then just pick glibc.
++	# We could probably try harder.
++	LIBC=gnu
++
++	eval $set_cc_for_build
++	cat <<-EOF > $dummy.c
++	#include <features.h>
++	#if defined(__UCLIBC__)
++	LIBC=uclibc
++	#elif defined(__dietlibc__)
++	LIBC=dietlibc
++	#else
++	LIBC=gnu
++	#endif
++	EOF
++	eval `$CC_FOR_BUILD -E $dummy.c 2>/dev/null | grep '^LIBC'`
++	;;
++esac
++
+ # Note: order is significant - the case branches are not exclusive.
+ 
+ case "${UNAME_MACHINE}:${UNAME_SYSTEM}:${UNAME_RELEASE}:${UNAME_VERSION}" in
+@@ -859,21 +874,21 @@ EOF
+ 	exit ;;
+     *:GNU:*:*)
+ 	# the GNU system
+-	echo `echo ${UNAME_MACHINE}|sed -e 's,[-/].*$,,'`-unknown-gnu`echo ${UNAME_RELEASE}|sed -e 's,/.*$,,'`
++	echo `echo ${UNAME_MACHINE}|sed -e 's,[-/].*$,,'`-unknown-${LIBC}`echo ${UNAME_RELEASE}|sed -e 's,/.*$,,'`
+ 	exit ;;
+     *:GNU/*:*:*)
+ 	# other systems with GNU libc and userland
+-	echo ${UNAME_MACHINE}-unknown-`echo ${UNAME_SYSTEM} | sed 's,^[^/]*/,,' | tr '[A-Z]' '[a-z]'``echo ${UNAME_RELEASE}|sed -e 's/[-(].*//'`-gnu
++	echo ${UNAME_MACHINE}-unknown-`echo ${UNAME_SYSTEM} | sed 's,^[^/]*/,,' | tr '[A-Z]' '[a-z]'``echo ${UNAME_RELEASE}|sed -e 's/[-(].*//'`-${LIBC}
+ 	exit ;;
+     i*86:Minix:*:*)
+ 	echo ${UNAME_MACHINE}-pc-minix
+ 	exit ;;
+     aarch64:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     aarch64_be:Linux:*:*)
+ 	UNAME_MACHINE=aarch64_be
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     alpha:Linux:*:*)
+ 	case `sed -n '/^cpu model/s/^.*: \(.*\)/\1/p' < /proc/cpuinfo` in
+@@ -886,59 +901,54 @@ EOF
+ 	  EV68*) UNAME_MACHINE=alphaev68 ;;
+ 	esac
+ 	objdump --private-headers /bin/sh | grep -q ld.so.1
+-	if test "$?" = 0 ; then LIBC="libc1" ; else LIBC="" ; fi
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu${LIBC}
++	if test "$?" = 0 ; then LIBC="gnulibc1" ; fi
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
++	exit ;;
++    arc:Linux:*:* | arceb:Linux:*:*)
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     arm*:Linux:*:*)
+ 	eval $set_cc_for_build
+ 	if echo __ARM_EABI__ | $CC_FOR_BUILD -E - 2>/dev/null \
+ 	    | grep -q __ARM_EABI__
+ 	then
+-	    echo ${UNAME_MACHINE}-unknown-linux-gnu
++	    echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	else
+ 	    if echo __ARM_PCS_VFP | $CC_FOR_BUILD -E - 2>/dev/null \
+ 		| grep -q __ARM_PCS_VFP
+ 	    then
+-		echo ${UNAME_MACHINE}-unknown-linux-gnueabi
++		echo ${UNAME_MACHINE}-unknown-linux-${LIBC}eabi
+ 	    else
+-		echo ${UNAME_MACHINE}-unknown-linux-gnueabihf
++		echo ${UNAME_MACHINE}-unknown-linux-${LIBC}eabihf
+ 	    fi
+ 	fi
+ 	exit ;;
+     avr32*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     cris:Linux:*:*)
+-	echo ${UNAME_MACHINE}-axis-linux-gnu
++	echo ${UNAME_MACHINE}-axis-linux-${LIBC}
+ 	exit ;;
+     crisv32:Linux:*:*)
+-	echo ${UNAME_MACHINE}-axis-linux-gnu
++	echo ${UNAME_MACHINE}-axis-linux-${LIBC}
+ 	exit ;;
+     frv:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     hexagon:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     i*86:Linux:*:*)
+-	LIBC=gnu
+-	eval $set_cc_for_build
+-	sed 's/^	//' << EOF >$dummy.c
+-	#ifdef __dietlibc__
+-	LIBC=dietlibc
+-	#endif
+-EOF
+-	eval `$CC_FOR_BUILD -E $dummy.c 2>/dev/null | grep '^LIBC'`
+-	echo "${UNAME_MACHINE}-pc-linux-${LIBC}"
++	echo ${UNAME_MACHINE}-pc-linux-${LIBC}
+ 	exit ;;
+     ia64:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     m32r*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     m68*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     mips:Linux:*:* | mips64:Linux:*:*)
+ 	eval $set_cc_for_build
+@@ -957,54 +967,63 @@ EOF
+ 	#endif
+ EOF
+ 	eval `$CC_FOR_BUILD -E $dummy.c 2>/dev/null | grep '^CPU'`
+-	test x"${CPU}" != x && { echo "${CPU}-unknown-linux-gnu"; exit; }
++	test x"${CPU}" != x && { echo "${CPU}-unknown-linux-${LIBC}"; exit; }
+ 	;;
++    or1k:Linux:*:*)
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
++	exit ;;
+     or32:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     padre:Linux:*:*)
+-	echo sparc-unknown-linux-gnu
++	echo sparc-unknown-linux-${LIBC}
+ 	exit ;;
+     parisc64:Linux:*:* | hppa64:Linux:*:*)
+-	echo hppa64-unknown-linux-gnu
++	echo hppa64-unknown-linux-${LIBC}
+ 	exit ;;
+     parisc:Linux:*:* | hppa:Linux:*:*)
+ 	# Look for CPU level
+ 	case `grep '^cpu[^a-z]*:' /proc/cpuinfo 2>/dev/null | cut -d' ' -f2` in
+-	  PA7*) echo hppa1.1-unknown-linux-gnu ;;
+-	  PA8*) echo hppa2.0-unknown-linux-gnu ;;
+-	  *)    echo hppa-unknown-linux-gnu ;;
++	  PA7*) echo hppa1.1-unknown-linux-${LIBC} ;;
++	  PA8*) echo hppa2.0-unknown-linux-${LIBC} ;;
++	  *)    echo hppa-unknown-linux-${LIBC} ;;
+ 	esac
+ 	exit ;;
+     ppc64:Linux:*:*)
+-	echo powerpc64-unknown-linux-gnu
++	echo powerpc64-unknown-linux-${LIBC}
+ 	exit ;;
+     ppc:Linux:*:*)
+-	echo powerpc-unknown-linux-gnu
++	echo powerpc-unknown-linux-${LIBC}
++	exit ;;
++    ppc64le:Linux:*:*)
++	echo powerpc64le-unknown-linux-${LIBC}
++	exit ;;
++    ppcle:Linux:*:*)
++	echo powerpcle-unknown-linux-${LIBC}
+ 	exit ;;
+     s390:Linux:*:* | s390x:Linux:*:*)
+-	echo ${UNAME_MACHINE}-ibm-linux
++	echo ${UNAME_MACHINE}-ibm-linux-${LIBC}
+ 	exit ;;
+     sh64*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     sh*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     sparc:Linux:*:* | sparc64:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     tile*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     vax:Linux:*:*)
+-	echo ${UNAME_MACHINE}-dec-linux-gnu
++	echo ${UNAME_MACHINE}-dec-linux-${LIBC}
+ 	exit ;;
+     x86_64:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     xtensa*:Linux:*:*)
+-	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+ 	exit ;;
+     i*86:DYNIX/ptx:4*:*)
+ 	# ptx 4.0 does uname -s correctly, with DYNIX/ptx in there.
+@@ -1237,19 +1256,21 @@ EOF
+ 	exit ;;
+     *:Darwin:*:*)
+ 	UNAME_PROCESSOR=`uname -p` || UNAME_PROCESSOR=unknown
+-	case $UNAME_PROCESSOR in
+-	    i386)
+-		eval $set_cc_for_build
+-		if [ "$CC_FOR_BUILD" != 'no_compiler_found' ]; then
+-		  if (echo '#ifdef __LP64__'; echo IS_64BIT_ARCH; echo '#endif') | \
+-		      (CCOPTS= $CC_FOR_BUILD -E - 2>/dev/null) | \
+-		      grep IS_64BIT_ARCH >/dev/null
+-		  then
+-		      UNAME_PROCESSOR="x86_64"
+-		  fi
+-		fi ;;
+-	    unknown) UNAME_PROCESSOR=powerpc ;;
+-	esac
++	eval $set_cc_for_build
++	if test "$UNAME_PROCESSOR" = unknown ; then
++	    UNAME_PROCESSOR=powerpc
++	fi
++	if [ "$CC_FOR_BUILD" != 'no_compiler_found' ]; then
++	    if (echo '#ifdef __LP64__'; echo IS_64BIT_ARCH; echo '#endif') | \
++		(CCOPTS= $CC_FOR_BUILD -E - 2>/dev/null) | \
++		grep IS_64BIT_ARCH >/dev/null
++	    then
++		case $UNAME_PROCESSOR in
++		    i386) UNAME_PROCESSOR=x86_64 ;;
++		    powerpc) UNAME_PROCESSOR=powerpc64 ;;
++		esac
++	    fi
++	fi
+ 	echo ${UNAME_PROCESSOR}-apple-darwin${UNAME_RELEASE}
+ 	exit ;;
+     *:procnto*:*:* | *:QNX:[0123456789]*:*)
+diff --git a/src/config.sub b/src/config.sub
+index bdda9e4..8b612ab 100755
+--- a/src/config.sub
++++ b/src/config.sub
+@@ -1,24 +1,18 @@
+ #! /bin/sh
+ # Configuration validation subroutine script.
+-#   Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+-#   2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+-#   2011, 2012 Free Software Foundation, Inc.
++#   Copyright 1992-2013 Free Software Foundation, Inc.
+ 
+-timestamp='2012-08-18'
++timestamp='2013-04-24'
+ 
+-# This file is (in principle) common to ALL GNU software.
+-# The presence of a machine in this file suggests that SOME GNU software
+-# can handle that machine.  It does not imply ALL GNU software can.
+-#
+-# This file is free software; you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation; either version 2 of the License, or
++# This file is free software; you can redistribute it and/or modify it
++# under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 3 of the License, or
+ # (at your option) any later version.
+ #
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
++# This program is distributed in the hope that it will be useful, but
++# WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++# General Public License for more details.
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with this program; if not, see <http://www.gnu.org/licenses/>.
+@@ -26,11 +20,12 @@ timestamp='2012-08-18'
+ # As a special exception to the GNU General Public License, if you
+ # distribute this file as part of a program that contains a
+ # configuration script generated by Autoconf, you may include it under
+-# the same distribution terms that you use for the rest of that program.
++# the same distribution terms that you use for the rest of that
++# program.  This Exception is an additional permission under section 7
++# of the GNU General Public License, version 3 ("GPLv3").
+ 
+ 
+-# Please send patches to <config-patches@gnu.org>.  Submit a context
+-# diff and a properly formatted GNU ChangeLog entry.
++# Please send patches with a ChangeLog entry to config-patches@gnu.org.
+ #
+ # Configuration subroutine to validate and canonicalize a configuration type.
+ # Supply the specified configuration type as an argument.
+@@ -73,9 +68,7 @@ Report bugs and patches to <config-patches@gnu.org>."
+ version="\
+ GNU config.sub ($timestamp)
+ 
+-Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
+-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
+-Free Software Foundation, Inc.
++Copyright 1992-2013 Free Software Foundation, Inc.
+ 
+ This is free software; see the source for copying conditions.  There is NO
+ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+@@ -156,7 +149,7 @@ case $os in
+ 	-convergent* | -ncr* | -news | -32* | -3600* | -3100* | -hitachi* |\
+ 	-c[123]* | -convex* | -sun | -crds | -omron* | -dg | -ultra | -tti* | \
+ 	-harris | -dolphin | -highlevel | -gould | -cbm | -ns | -masscomp | \
+-	-apple | -axis | -knuth | -cray | -microblaze)
++	-apple | -axis | -knuth | -cray | -microblaze*)
+ 		os=
+ 		basic_machine=$1
+ 		;;
+@@ -259,8 +252,10 @@ case $basic_machine in
+ 	| alpha | alphaev[4-8] | alphaev56 | alphaev6[78] | alphapca5[67] \
+ 	| alpha64 | alpha64ev[4-8] | alpha64ev56 | alpha64ev6[78] | alpha64pca5[67] \
+ 	| am33_2.0 \
+-	| arc | arm | arm[bl]e | arme[lb] | armv[2345] | armv[345][lb] | avr | avr32 \
+-        | be32 | be64 \
++	| arc | arceb \
++	| arm | arm[bl]e | arme[lb] | armv[2-8] | armv[3-8][lb] | armv7[arm] \
++	| avr | avr32 \
++	| be32 | be64 \
+ 	| bfin \
+ 	| c4x | clipper \
+ 	| d10v | d30v | dlx | dsp16xx \
+@@ -273,7 +268,7 @@ case $basic_machine in
+ 	| le32 | le64 \
+ 	| lm32 \
+ 	| m32c | m32r | m32rle | m68000 | m68k | m88k \
+-	| maxq | mb | microblaze | mcore | mep | metag \
++	| maxq | mb | microblaze | microblazeel | mcore | mep | metag \
+ 	| mips | mipsbe | mipseb | mipsel | mipsle \
+ 	| mips16 \
+ 	| mips64 | mips64el \
+@@ -291,16 +286,17 @@ case $basic_machine in
+ 	| mipsisa64r2 | mipsisa64r2el \
+ 	| mipsisa64sb1 | mipsisa64sb1el \
+ 	| mipsisa64sr71k | mipsisa64sr71kel \
++	| mipsr5900 | mipsr5900el \
+ 	| mipstx39 | mipstx39el \
+ 	| mn10200 | mn10300 \
+ 	| moxie \
+ 	| mt \
+ 	| msp430 \
+ 	| nds32 | nds32le | nds32be \
+-	| nios | nios2 \
++	| nios | nios2 | nios2eb | nios2el \
+ 	| ns16k | ns32k \
+ 	| open8 \
+-	| or32 \
++	| or1k | or32 \
+ 	| pdp10 | pdp11 | pj | pjl \
+ 	| powerpc | powerpc64 | powerpc64le | powerpcle \
+ 	| pyramid \
+@@ -370,7 +366,7 @@ case $basic_machine in
+ 	| aarch64-* | aarch64_be-* \
+ 	| alpha-* | alphaev[4-8]-* | alphaev56-* | alphaev6[78]-* \
+ 	| alpha64-* | alpha64ev[4-8]-* | alpha64ev56-* | alpha64ev6[78]-* \
+-	| alphapca5[67]-* | alpha64pca5[67]-* | arc-* \
++	| alphapca5[67]-* | alpha64pca5[67]-* | arc-* | arceb-* \
+ 	| arm-*  | armbe-* | armle-* | armeb-* | armv*-* \
+ 	| avr-* | avr32-* \
+ 	| be32-* | be64-* \
+@@ -389,7 +385,8 @@ case $basic_machine in
+ 	| lm32-* \
+ 	| m32c-* | m32r-* | m32rle-* \
+ 	| m68000-* | m680[012346]0-* | m68360-* | m683?2-* | m68k-* \
+-	| m88110-* | m88k-* | maxq-* | mcore-* | metag-* | microblaze-* \
++	| m88110-* | m88k-* | maxq-* | mcore-* | metag-* \
++	| microblaze-* | microblazeel-* \
+ 	| mips-* | mipsbe-* | mipseb-* | mipsel-* | mipsle-* \
+ 	| mips16-* \
+ 	| mips64-* | mips64el-* \
+@@ -407,12 +404,13 @@ case $basic_machine in
+ 	| mipsisa64r2-* | mipsisa64r2el-* \
+ 	| mipsisa64sb1-* | mipsisa64sb1el-* \
+ 	| mipsisa64sr71k-* | mipsisa64sr71kel-* \
++	| mipsr5900-* | mipsr5900el-* \
+ 	| mipstx39-* | mipstx39el-* \
+ 	| mmix-* \
+ 	| mt-* \
+ 	| msp430-* \
+ 	| nds32-* | nds32le-* | nds32be-* \
+-	| nios-* | nios2-* \
++	| nios-* | nios2-* | nios2eb-* | nios2el-* \
+ 	| none-* | np1-* | ns16k-* | ns32k-* \
+ 	| open8-* \
+ 	| orion-* \
+@@ -788,7 +786,7 @@ case $basic_machine in
+ 		basic_machine=ns32k-utek
+ 		os=-sysv
+ 		;;
+-	microblaze)
++	microblaze*)
+ 		basic_machine=microblaze-xilinx
+ 		;;
+ 	mingw64)
+@@ -1023,7 +1021,11 @@ case $basic_machine in
+ 		basic_machine=i586-unknown
+ 		os=-pw32
+ 		;;
+-	rdos)
++	rdos | rdos64)
++		basic_machine=x86_64-pc
++		os=-rdos
++		;;
++	rdos32)
+ 		basic_machine=i386-pc
+ 		os=-rdos
+ 		;;
+@@ -1350,7 +1352,7 @@ case $os in
+ 	-gnu* | -bsd* | -mach* | -minix* | -genix* | -ultrix* | -irix* \
+ 	      | -*vms* | -sco* | -esix* | -isc* | -aix* | -cnk* | -sunos | -sunos[34]*\
+ 	      | -hpux* | -unos* | -osf* | -luna* | -dgux* | -auroraux* | -solaris* \
+-	      | -sym* | -kopensolaris* \
++	      | -sym* | -kopensolaris* | -plan9* \
+ 	      | -amigaos* | -amigados* | -msdos* | -newsos* | -unicos* | -aof* \
+ 	      | -aos* | -aros* \
+ 	      | -nindy* | -vxsim* | -vxworks* | -ebmon* | -hms* | -mvs* \
+@@ -1496,9 +1498,6 @@ case $os in
+ 	-aros*)
+ 		os=-aros
+ 		;;
+-	-kaos*)
+-		os=-kaos
+-		;;
+ 	-zvmoe)
+ 		os=-zvmoe
+ 		;;
+@@ -1590,6 +1589,9 @@ case $basic_machine in
+ 	mips*-*)
+ 		os=-elf
+ 		;;
++	or1k-*)
++		os=-elf
++		;;
+ 	or32-*)
+ 		os=-coff
+ 		;;
+diff --git a/src/os/SWI-Stream.h b/src/os/SWI-Stream.h
+index 76d076e..8b34092 100644
+--- a/src/os/SWI-Stream.h
++++ b/src/os/SWI-Stream.h
+@@ -135,7 +135,7 @@ typedef int   (*Sclose_function)(void *handle);
+ typedef int   (*Scontrol_function)(void *handle, int action, void *arg);
+ 
+ #if defined(O_PLMT) && defined(PL_KERNEL)
+-#include "pl-mutex.h"
++#include "../pl-mutex.h"
+ #define IOLOCK recursiveMutex
+ #else
+ typedef void *		IOLOCK;		/* Definition for external use */
+diff --git a/src/pl-fli.c b/src/pl-fli.c
+index fb2f798..de9331f 100644
+--- a/src/pl-fli.c
++++ b/src/pl-fli.c
+@@ -3586,13 +3586,20 @@ PL_term_type(term_t t)
+ 		 *	      UNIFY		*
+ 		 *******************************/
+ 
+-
++#define BEGIN_GDB_DATA int lino=0; char* GDB_DATA[20];
++#define GDB_VALUE(p)  Ssprintf(GDB_DATA[lino++],"%s=%s", #p , addr_value(p,0))
++#define END_GDB_DATA 
+ 
+ int
+ PL_unify__LD(term_t t1, term_t t2 ARG_LD)
+ { Word p1 = valHandleP(t1);
+   Word p2 = valHandleP(t2);
+-
++   /*
++   BEGIN_GDB_DATA;
++	GDB_VALUE(p1);
++	GDB_VALUE(p2);
++	END_GDB_DATA;*/
++	
+   return unify_ptrs(p1, p2, ALLOW_GC|ALLOW_SHIFT PASS_LD);
+ }
+ 
+@@ -4161,6 +4168,7 @@ PL_halt(int status)
+   reclaim_memory = TRUE;
+ #endif
+ 
++	trap_gdb();
+   if ( cleanupProlog(status, reclaim_memory) )
+   { run_on_halt(&GD->os.exit_hooks, status);
+     exit(status);
+@@ -4319,7 +4327,7 @@ struct initialise_handle
+ 
+ void
+ PL_initialise_hook(PL_initialise_hook_t func)
+-{ InitialiseHandle h = initialise_head;
++ { InitialiseHandle h = initialise_head;
+ 
+   for(; h; h = h->next)
+   { if ( h->function == func )
+diff --git a/src/pl-gc.c b/src/pl-gc.c
+index 2a87578..c7d1e9f 100644
+--- a/src/pl-gc.c
++++ b/src/pl-gc.c
+@@ -261,98 +261,191 @@ static int		check_marked(const char *s);
+ #undef LD
+ #define LD LOCAL_LD
+ 
++
+ 		/********************************
+ 		*           DEBUGGING           *
+ 		*********************************/
+ 
+ #if defined(O_DEBUG) || defined(O_MAINTENANCE)
+ 
++
+ char *
+ print_addr(Word adr, char *buf)
+-{ GET_LD
+-  char *name;
+-  Word base;
+-  static char tmp[256];
+-
+-  if ( !buf )
+-    buf = tmp;
+-
+-  if ( onGlobal(adr) )
+-  { name = "global";
+-    base = gBase;
+-  } else if ( onLocal(adr) )
+-  { name = "local";
+-    base = (Word) lBase;
+-  } else if ( onTrail(adr) )
+-  { name = "trail";
+-    base = (Word) tBase;
+-  } else
+-  { Ssprintf(buf, "%p", adr);
+-    return buf;
+-  }
++{
++  if (adr == 0) return "<NULL-ADDR>";
++GET_LD
++    char *name;
++	Word base;
++ static char tmp[2560];
++
++	if (!buf)
++		buf = tmp;
++
++	if (onGlobal(adr))
++	{
++		name = "global";
++		base = gBase;
++	}
++	else if (onLocal(adr))
++	{
++		name = "local";
++		base = (Word) lBase;
++	}
++	else if (onTrail(adr))
++	{
++		name = "trail";
++		base = (Word) tBase;
++	}
++	else
++	{
++		Ssprintf(buf, "pointer(%p)", adr);
++		return buf;
++	}
+ 
+-  Ssprintf(buf, "%p=%s(%d)", adr, name, adr-base);
+-  return buf;
++	Ssprintf(buf, "(%p=%s(%d))", adr, name, adr - base);
++	/* DMILES: this seems to disagree with the print_val(..) by -1 */
++	return buf;
+ }
+ 
+ 
+-char *
+-print_val(word val, char *buf)
+-{ GET_LD
+-  static const char *tag_name[] = { "var", "attvar", "float", "int", "atom",
+-				    "string", "term", "ref" };
+-  static const char *stg_name[] = { "static", "global", "local", "reserved" };
+-  static char tmp[256];
+-  char *o;
+-
+-  if ( !buf )
+-    buf = tmp;
+-  o = buf;
+-
+-  if ( val & (MARK_MASK|FIRST_MASK) )
+-  { *o++ = '[';
+-    if ( val & MARK_MASK )
+-      *o++ = 'M';
+-    if ( val & FIRST_MASK )
+-      *o++ = 'F';
+-    *o++ = ']';
+-    val &= ~(word)(MARK_MASK|FIRST_MASK);
+-  }
+-
+-  if ( isVar(val) )
+-  { strcpy(o, "VAR");
+-  } else if ( isTaggedInt(val) )
+-  { Ssprintf(o, "int(%ld)", valInteger(val));
+-  } else if ( isAtom(val) )
+-  { const char *s = stringAtom(val);
+-    if ( strlen(s) > 10 )
+-    { strncpy(o, s, 10);
+-      strcat(o, "...");
+-    } else
+-    { strcpy(o, s);
+-    }
+-  } else if ( tagex(val) == (TAG_ATOM|STG_GLOBAL) )
+-  { FunctorDef fd = valueFunctor(val);
++char* print_val_recurse4(word val, char *buf, int tablevel, int dereflevel);
++char* 
++print_val_recurse(word val, char *buf, int dereflevel) {
++	return print_val_recurse4(val, buf, 0, dereflevel);
++}
++char*
++print_val_recurse4(word val, char *buf, int tablevel, int dereflevel)
++{
++	GET_LD
++  static const char *tag_name[] = {
++		"var",
++		"attvar",
++		"float",
++		"int",
++		"atom",
++		"string",
++		"term",
++		"ref"
++	};
++	static const char *stg_name[] = { "static", "global", "local", "reserved" };
++	char tmp[2560];
++	char *o;
++  
++	if (!buf)
++		buf = tmp;
++	o = buf;
++
++	if (val & (MARK_MASK | FIRST_MASK))
++	{
++		*o++ = '[';
++		if (val & MARK_MASK)
++			*o++ = 'M';
++		if (val & FIRST_MASK)
++			*o++ = 'F';
++		*o++ = ']';
++		val &= ~(word)(MARK_MASK | FIRST_MASK);
++	}
+ 
+-    Ssprintf(o, "functor %s/%d", stringAtom(fd->name), fd->arity);
+-  } else
+-  { size_t offset = (val>>(LMASK_BITS-2))/sizeof(word);
++	if (isVar(val))
++	{
++		Ssprintf(o, "VAR(%ld)", val);
++    
++	}
++	else if (isTaggedInt(val))
++	{
++		Ssprintf(o, "int(%ld)", valInteger(val));
++	}
++	else if (isAtom(val))
++	{
++		const char *s = stringAtom(val);
++		if (strlen(s) > 10)
++		{
++			strncpy(o, s, 10);
++			strcat(o, "...");
++		}
++		else
++		{
++			strcpy(o, s);
++		}
++	}
++	else if (tagex(val) == (TAG_ATOM | STG_GLOBAL))
++	{
++		FunctorDef fd = valueFunctor(val);
+ 
+-    if ( storage(val) == STG_GLOBAL )
+-      offset -= gBase - (Word)base_addresses[STG_GLOBAL];
++		Ssprintf(o, "functor %s/%d", stringAtom(fd->name), fd->arity);
++	}
++	else
++	{
++		size_t offset = (val >> (LMASK_BITS - 2)) / sizeof(word);
++
++		if (storage(val) == STG_GLOBAL)
++			offset -= gBase - (Word)base_addresses[STG_GLOBAL];
++
++		/* DMILES: the above offset seems to disagree with the print_addr(..) by +1 */
++		offset--;
++
++		if (isRef(val) && dereflevel > 0)
++		{
++			Word at = unRef(val);
++			if ((void*)at != (void*)val)
++			{
++				Ssprintf(o,
++					"%s at %s(%ld)\n%\td%s",
++					tag_name[tag(val)],
++					stg_name[storage(val) >> 3],
++					(long)offset,
++					tablevel,
++					print_val_recurse4(*at, 0, tablevel + 1, dereflevel - 1));
++			}
++			else
++				Ssprintf(o,
++					"LOOPED-REF %s at %s(%ld)",
++					tag_name[tag(val)],
++					stg_name[storage(val) >> 3],
++					(long)offset);
++			{
++			}
++		}
++		else
++		{
++			Ssprintf(o,
++				"%s at %s(%ld)",
++				tag_name[tag(val)],
++				stg_name[storage(val) >> 3],
++				(long)offset);
++		}
++ 
++	}
++	return buf;
++}
+ 
+-    Ssprintf(o, "%s at %s(%ld)",
+-	     tag_name[tag(val)],
+-	     stg_name[storage(val) >> 3],
+-	     (long)offset);
+-  }
++char* print_val(word val, char *buf) { return print_val_recurse(val, buf, 1); }
+ 
+-  return buf;
++static bool attemptPointer(Word adr) 
++{
++	GET_LD
++    
++	if (onGlobal(adr)) return TRUE;
++	if (onLocal(adr)) return TRUE;
++	if (onTrail(adr)) return TRUE;
++	/*some DM wierdness*/
++	char foo[1];
++	intptr_t ip = &foo;
++	/* far away from zero */
++	if ((char*)adr > ((char*)(ip % 2))) return TRUE;
++	return FALSE;
++}
++
++char* addr_value(Word data)
++{
++	char tmp[1024];
++	Ssprintf(tmp, "%s=%s", print_addr(data, 0), (attemptPointer(data) ? print_val(*data, 0) : "<NULL>"));
++	return &tmp;
+ }
+ 
+-#endif /*O_DEBUG*/
++//#endif /*O_DEBUG*/
+ 
+-#if O_DEBUG
++//#if O_DEBUG
+ 
+ #define RELOC_NEEDS   ((void*)1)
+ #define RELOC_CHAINED ((void*)2)
+@@ -1279,9 +1372,6 @@ early_reset_vars(mark *m, Word top, GCTrailEntry te ARG_LD)
+   int assignments = 0;
+   Word gKeep = (LD->frozen_bar > m->globaltop ? LD->frozen_bar : m->globaltop);
+ 
+-#ifdef O_UNDO_HOOK
+-       if(!metaterm_did_undo("GCTrailEntry", te, 0, 0  PASS_LD))   ;
+-#endif
+ 
+   for( ; te >= tm; te-- )		/* early reset of vars */
+   {
+@@ -1292,7 +1382,7 @@ early_reset_vars(mark *m, Word top, GCTrailEntry te ARG_LD)
+       if ( tard >= top || (tard >= gKeep && tard < gMax) )
+       {
+ #ifdef O_UNDO_HOOK
+-       if(!metaterm_did_undo("te-tard", te, 0, tard  PASS_LD))   ;
++       /*if(!metaterm_did_undo("te-tard", te, 0, tard  PASS_LD))   ;*/
+ #endif
+         te->address = 0;
+ 	te--;
+@@ -1320,7 +1410,7 @@ early_reset_vars(mark *m, Word top, GCTrailEntry te ARG_LD)
+       } else
+       { Word gp = val_ptr(te->address);
+ #ifdef O_UNDO_HOOK
+-          if(!metaterm_did_undo("Early reset", te, 0, gp  PASS_LD))   ;
++          /*if(!metaterm_did_undo("Early reset", te, 0, gp  PASS_LD))   ;*/
+ #endif
+ 	DEBUG(MSG_GC_RESET,
+ 	      char b1[64]; char b2[64]; char b3[64];
+diff --git a/src/pl-hash.c b/src/pl-hash.c
+index a2c561a..d6957db 100644
+--- a/src/pl-hash.c
++++ b/src/pl-hash.c
+@@ -11,7 +11,7 @@
+ #define uintptr_t long
+ #define DEBUG(l,g) (void)0
+ #else
+-#include <pl-incl.h>
++#include "pl-incl.h"
+ #endif
+ 
+ /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/pl-incl.h b/src/pl-incl.h
+index c6631c1..1930882 100644
+--- a/src/pl-incl.h
++++ b/src/pl-incl.h
+@@ -37,7 +37,7 @@
+ #endif
+ #define DEFSTARTUP   "swipl.ini"
+ #else
+-#include <config.h>
++#include "config.h"
+ #endif
+ 
+ #ifdef _MSC_VER
+@@ -64,7 +64,7 @@
+ #define C_PLLIB	     "-lswipl"
+ #define C_LDFLAGS    ""
+ #endif
+-#include <parms.h>			/* pick from the working dir */
++#include "parms.h"			/* pick from the working dir */
+ #endif
+ 
+ #define PL_KERNEL		1
+diff --git a/src/pl-init.c b/src/pl-init.c
+index e09a369..f0cefc8 100644
+--- a/src/pl-init.c
++++ b/src/pl-init.c
+@@ -340,6 +340,7 @@ initPaths(int argc, const char **argv)
+ #ifdef __WINDOWS__			/* we want no module but the .EXE */
+     GD->paths.module	       = store_string("libswipl.dll");
+ #endif
++	  
+   }
+ 
+   systemDefaults.startup = store_string(PrologPath(DEFSTARTUP, plp, sizeof(plp)));
+@@ -351,6 +352,8 @@ initPaths(int argc, const char **argv)
+     systemDefaults.home = store_string(buf);
+   }
+ #endif
++
++  trap_gdb();
+ }
+ 
+ 
+diff --git a/src/swipl.pc.in b/src/swipl.pc.in
+index 1eaddf6..ae0da41 100644
+--- a/src/swipl.pc.in
++++ b/src/swipl.pc.in
+@@ -15,5 +15,5 @@ PLSOEXT=@SO_EXT@
+ Name: swipl
+ Description: ISO/Edinburgh-style Prolog compiler
+ Version: @PLVERSION@
+-Libs: ${PLLDFLAGS}  -L@PLBASE@/lib/@INSTALL_PLARCH@ -lswipl
++Libs: ${PLLDFLAGS}  -L@PLBASE@/lib/@INSTALL_PLARCH@ -lswipl -lgmp -lncursesw
+ Cflags: ${PLCFLAGS} -I@PLBASE@/include
